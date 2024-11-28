@@ -8,6 +8,10 @@ RUN apt-get install vim -y
 RUN apt-get install v
 RUN echo 'root:thumos14!' | chpasswd 
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+COPY ./Utils/ /home/Thumos14/Utils
+COPY ./Model/ /home/Thumos14/Model
+COPY ./main.py /home/THumos14
+
 
 CMD ["/usr/sbin/sshd", "-D"]
 ENV DEBIAN_FRONTEND=interactive
